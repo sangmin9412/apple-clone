@@ -62,20 +62,26 @@ a {
 
 /* section style */
 .scroll-section {
+    position: relative;
     padding-top: 50vh;
 }
 
 #scroll-section-0 h1{
-    font-size: 4rem;
-    text-align: center;
+    position: relative;
+	top: -10vh;
+	z-index: 5;
+	font-size: 4rem;
+	text-align: center;
 }
 .main-message {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    top: 35vh;
     margin: 5px 0;
     height: 3em;
     font-size: 2.5rem;
+    opacity: 0;
 }
 .main-message p {
     font-weight: bold;
@@ -117,6 +123,14 @@ a {
     font-size: 2rem;
     color: #888;
 }
+#scroll-section-2 .b {
+    top: 10%;
+    left: 40%;
+}
+#scroll-section-2 .c {
+    top: 10%;
+    left: 40%;
+}
 .mid-message strong {
     color: rgb(29, 29, 31);
 }
@@ -140,10 +154,8 @@ a {
 .sticky-elem {
     display: none;
     position: fixed;
-    top: 0;
     left: 0;
     width: 100%;
-    opacity: 0;
 }
 #show-scene-0 #scroll-section-0 .sticky-elem,
 #show-scene-1 #scroll-section-1 .sticky-elem,
@@ -168,6 +180,13 @@ a {
 
     #scroll-section-2 .main-message {
         font-size: 6vw;
+    }
+    #scroll-section-2 .b {
+        top: 20%;
+        left: 54%;
+    }
+    #scroll-section-2 .c {
+        left: 55%;
     }
     .main-message small {
         font-size: 1.5vw;
