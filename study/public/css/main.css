@@ -1,5 +1,7 @@
 @charset 'utf-8';
 
+@import "./default.css";
+
 /* reset */
 html {
     font-family: 'Noto Sans KR', sans-serif;
@@ -192,6 +194,7 @@ a {
 }
 .image-blend-canvas.sticky {
     position: fixed;
+    z-index: 10;
 }
 
 #scroll-section-3{

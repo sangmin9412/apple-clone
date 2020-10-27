@@ -1,3 +1,6 @@
+import '../public/css/main.css';
+import { rootPath } from '../../config/config.js';
+
 (() => {
 
     let yOffset = 0; // window.pageYOffset 변수
@@ -6,13 +9,8 @@
     let enterNewScene = false; // 새로운 scene이 시작된 순간 true
     let acc = 0.1; // 감속도
     let delayedYOffset = 0; // 감속도 적용된 yOffset
-    let rafID; // requestAnimationFrame State
+    let rafId; // requestAnimationFrame State
     let rafState; // requestAnimationFrame Id
-
-    // let acc = 0.2;
-    // let delayedYOffset = 0;
-    // let rafId;
-    // let rafState;
     
     const sceneInfo = [
       {
@@ -109,8 +107,8 @@
           canvas: document.querySelector('.image-blend-canvas'),
           context: document.querySelector('.image-blend-canvas').getContext('2d'),
           imagesPath: [
-            './images/blend-image-1.jpg',
-            './images/blend-image-2.jpg',
+            `${rootPath}/images/blend-image-1.jpg`,
+            `${rootPath}/images/blend-image-2.jpg`,
           ],
           images: []
         },
@@ -130,14 +128,14 @@
         let imgElem;
         for (let i = 0; i < sceneInfo[0].values.videoImageCount; i++) {
             imgElem = new Image();
-            imgElem.src = `./video/001/IMG_${6726 + i}.JPG`;
+            imgElem.src = `${rootPath}/video/001/IMG_${6726 + i}.JPG`;
             sceneInfo[0].objs.videoImages.push(imgElem);
         }
 
         let imgElem2;
         for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
             imgElem2 = new Image();
-            imgElem2.src = `./video/002/IMG_${7027 + i}.JPG`;
+            imgElem2.src = `${rootPath}/video/002/IMG_${7027 + i}.JPG`;
             sceneInfo[2].objs.videoImages.push(imgElem2);
         }
 
@@ -269,7 +267,8 @@
                     objs.messageD.style.transform = `translate3d(0, ${calcValues(values.messageD_translateY_out, currentYOffset)}%, 0)`;
                 }
 
-                if (scrollRatio >= 0.9) {
+                // 스크롤을 빠르게 올릴 경우 인식을 못해서 조건 추가 scrollRatio 가 0.9 보다 작은데 opacity 가 0인 경우도 실행
+                if (scrollRatio >= 0.9 || (scrollRatio <= 0.9 && parseInt(objs.canvas.style.opacity) === 0)) {
                     objs.canvas.style.opacity = calcValues(values.canvas_opacity_out, currentYOffset);
                 }
                 
@@ -539,8 +538,8 @@
       if (tempYOffset > 0) {
         let siId = setInterval(() => {
           scrollTo(0, tempYOffset);
-          tempYOffset += 2;
-          if (tempScrollCount > 10) {
+          tempYOffset += 5;
+          if (tempScrollCount > 20) {
             clearInterval(siId);
           }
           tempScrollCount++;
