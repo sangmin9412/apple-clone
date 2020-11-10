@@ -272,7 +272,7 @@ a {
 #scroll-section-4 .main-message.a,
 #scroll-section-4 .main-message.b {
   margin: 0;
-  top: 40vh;
+  top: 45vh;
   color: #fff;
   height: auto;
 }
@@ -387,5 +387,9 @@ a {
     }
     #scroll-section-4 .main-message.b {
       font-size: 7vw;
+    }
+    #scroll-section-4 .main-message.a,
+    #scroll-section-4 .main-message.b {
+      top: 40vh;
     }
 }

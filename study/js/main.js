@@ -520,11 +520,13 @@ import { rootPath } from '../../config/config.js';
                 document.querySelector('.local-nav').classList.remove('black');
               }
 
-              if (scrollRatio >= 0) {
+              if (scrollRatio >= 0.15) {
                 objs.container.style.background = 'transparent';
-              } else if (scrollRatio <= 0.1) {
+              } else {
                 objs.container.style.background = '#000';
               }
+
+              console.log(scrollRatio);
 
               if (scrollRatio <= 0.25) {
                 // in
