@@ -526,8 +526,6 @@ import { rootPath } from '../../config/config.js';
                 objs.container.style.background = '#000';
               }
 
-              console.log(scrollRatio);
-
               if (scrollRatio <= 0.25) {
                 // in
                 objs.messageA.style.opacity = calcValues(values.messageA_opacity_in, currentYOffset);
