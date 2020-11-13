@@ -4,7 +4,7 @@
   "description": "scroll interaction study",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --host=0.0.0.0",
     "predeploy": "cross-env NODE_ENV=production webpack",
     "deploy": "gh-pages -d apple-clone"
   },

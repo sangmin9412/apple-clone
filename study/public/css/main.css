@@ -287,6 +287,10 @@ a {
   color: #fff;
 }
 
+.pencil-logo.hide {
+  visibility: hidden;
+}
+
 .pencil-logo {
 	left: 50%;
 	top: 50%;

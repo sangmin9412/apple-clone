@@ -216,7 +216,10 @@ import { rootPath } from '../../config/config.js';
         }
       }
       document.body.setAttribute('id', `show-scene-${currentScene}`);
+      canvasResize();
+    }
 
+    function canvasResize() {
       const heightRatio = window.innerHeight / 1080;
       sceneInfo[0].objs.canvas.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`;
       sceneInfo[2].objs.canvas.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`;
@@ -522,8 +525,10 @@ import { rootPath } from '../../config/config.js';
 
               if (scrollRatio >= 0.15) {
                 objs.container.style.background = 'transparent';
+                objs.pencilLogo.classList.remove('hide');
               } else {
                 objs.container.style.background = '#000';
+                objs.pencilLogo.classList.add('hide');
               }
 
               if (scrollRatio <= 0.25) {
@@ -656,13 +661,14 @@ import { rootPath } from '../../config/config.js';
           rafId = requestAnimationFrame(loop);
           rafState = true;
         }
+
       });
 
       window.addEventListener('resize', () => {
         if (window.innerWidth > 900) {
           window.location.reload();
         } else {
-          setLayout();
+          canvasResize();
         }
       });
       window.addEventListener('orientationchange', () => {
