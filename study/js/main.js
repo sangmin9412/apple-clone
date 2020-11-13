@@ -149,8 +149,8 @@ import { rootPath } from '../../config/config.js';
           pencil_right: [-10, 100, { start: 0.3, end: 0.8 }],
           pencil_bottom: [-80, 100, { start: 0.3, end: 0.8 }],
           pencil_rotate: [-120, -240, { start: 0.3, end: 0.8 }],
-          path_dashoffset_in: [1401, 0, { start: 0.2, end: 0.4 }],
-          path_dashoffset_out: [0, -1401, { start: 0.6, end: 0.8 }]
+          path_dashoffset_in: [4203, 2802, { start: 0.2, end: 0.4 }],
+          path_dashoffset_out: [2802, 1401, { start: 0.6, end: 0.8 }]
         }
       }, {
         // 5
@@ -661,6 +661,8 @@ import { rootPath } from '../../config/config.js';
       window.addEventListener('resize', () => {
         if (window.innerWidth > 900) {
           window.location.reload();
+        } else {
+          setLayout();
         }
       });
       window.addEventListener('orientationchange', () => {
