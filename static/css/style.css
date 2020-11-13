@@ -141,13 +141,6 @@ a {
     margin-left: 2em;
 }
 
-.sticky-elem {
-	display: none;
-	position: fixed;
-	left: 0;
-	width: 100%;
-}
-
 /* section style */
 .scroll-section {
 	position: relative;
@@ -239,6 +232,19 @@ a {
 	color: white;
 	background: darkorange;
 }
+
+.sticky-elem {
+	display: none;
+	position: fixed;
+	left: 0;
+	width: 100%;
+}
+
+.sticky-elem.main-message {
+  top: 50%;
+  margin-top: -2em;
+}
+
 #show-scene-0 #scroll-section-0 .sticky-elem,
 #show-scene-1 #scroll-section-1 .sticky-elem,
 #show-scene-2 #scroll-section-2 .sticky-elem,
@@ -246,6 +252,13 @@ a {
 #show-scene-4 #scroll-section-4 .sticky-elem {
   display:block;
   will-change: transform, opacity;
+}
+#show-scene-0 #scroll-section-0 .sticky-elem.main-message,
+#show-scene-1 #scroll-section-1 .sticky-elem.main-message,
+#show-scene-2 #scroll-section-2 .sticky-elem.main-message,
+#show-scene-3 #scroll-section-3 .sticky-elem.main-message,
+#show-scene-4 #scroll-section-4 .sticky-elem.main-message {
+  display: flex;
 }
 .sticky-elem-canvas {
     top: 0;
@@ -323,10 +336,7 @@ a {
 }
 #scroll-section-4 .main-message.a,
 #scroll-section-4 .main-message.b {
-  margin: 0;
-  top: 45vh;
   color: #fff;
-  height: auto;
 }
 
 .pencil-logo {
@@ -439,9 +449,5 @@ a {
     }
     #scroll-section-4 .main-message.b {
       font-size: 7vw;
-    }
-    #scroll-section-4 .main-message.a,
-    #scroll-section-4 .main-message.b {
-      top: 40vh;
     }
 }
